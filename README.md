@@ -10,6 +10,6 @@ git clone https://github.com/zmilad97/Sudoku_solver.git
 cd Sudoku_solver
 flask run
 ```
-###OR
+### OR
 
 ## you can use it online on https://sudosolver-milad.herokuapp.com/
