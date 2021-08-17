@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="application/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .center {
+        border: 5px solid #00295a;
+        display: flex;
+        justify-content: center;
+        padding: 50px 50px;
+    }
+
+
+</style>
+<div class="center">
+    {% if message %}
+        <h3 class="message"><strong> {{ message }}</strong></h3>
+    {% endif %}
+
+</div>
+<div class="center">
+    <form action="{{ url_for('set_sudoku') }}" method="POST">
+        <table id="puzzle_grid" class="" cellspacing="0" cellpadding="0">
+            <tbody>
+            <div>
+                <tr>
+                    <td class="g0" id="c00"><input class="d0" size="2" autocomplete="off" name="c5m3711" maxlength="1"
+                                                   id="f00"></td>
+                    <td class="f0" id="c10"><input class="d0" size="2" autocomplete="off" name="c5m3721" maxlength="1"
+                                                   id="f10"></td>
+                    <td class="f0" id="c20"><input class="s0" size="2" autocomplete="off" name="sc5m3731"
+                                                   value=""
+                                                   id="f20"></td>
+
+                    <td class="g0" id="c30"><input class="s0" size="2" autocomplete="off" name="sc5m3741"
+                                                   value=""
+                                                   id="f30"></td>
+                    <td class="f0" id="c40"><input class="d0" size="2" autocomplete="off" name="c5m3751" maxlength="1"
+                                                   id="f40"></td>
+                    <td class="f0" id="c50"><input class="d0" size="2" autocomplete="off" name="c5m3761" maxlength="1"
+                                                   id="f50"></td>
+                    <td class="g0" id="c60"><input class="s0" size="2" autocomplete="off" name="sc5m3771" value=""
+                                                   id="f60"></td>
+                    <td class="f0" id="c70"><input class="d0" size="2" autocomplete="off" name="c5m3781" maxlength="1"
+                                                   id="f70"></td>
+                    <td class="f0" id="c80"><input class="s0" size="2" autocomplete="off" name="sc5m3791" value=""
+                                                   id="f80"></td>
+                </tr>
+                <tr>
+                    <td class="e0" id="c01"><input class="s0" size="2" autocomplete="off" name="sc5m3712" value=""
+                                                   id="f01"></td>
+                    <td class="c0" id="c11"><input class="s0" size="2" autocomplete="off" name="sc5m3722"
+                                                   value=""
+                                                   id="f11"></td>
+                    <td class="c0" id="c21"><input class="s0" size="2" autocomplete="off" name="sc5m3732"
+                                                   value=""
+                                                   id="f21"></td>
+                    <td class="e0" id="c31"><input class="d0" size="2" autocomplete="off" name="c5m3742" maxlength="1"
+                                                   id="f31"></td>
+                    <td class="c0" id="c41"><input class="d0" size="2" autocomplete="off" name="c5m3752" maxlength="1"
+                                                   id="f41"></td>
+                    <td class="c0" id="c51"><input class="d0" size="2" autocomplete="off" name="c5m3762" maxlength="1"
+                                                   id="f51"></td>
+                    <td class="e0" id="c61"><input class="d0" size="2" autocomplete="off" name="c5m3772" maxlength="1"
+                                                   id="f61"></td>
+                    <td class="c0" id="c71"><input class="d0" size="2" autocomplete="off" name="c5m3782" maxlength="1"
+                                                   id="f71"></td>
+                    <td class="c0" id="c81"><input class="s0" size="2" autocomplete="off" name="sc5m3792"
+                                                   value=""
+                                                   id="f81"></td>
+                </tr>
+                <tr>
+                    <td class="e0" id="c02"><input class="s0" size="2" autocomplete="off" name="sc5m3713"
+                                                   value=""
+                                                   id="f02"></td>
+                    <td class="c0" id="c12"><input class="d0" size="2" autocomplete="off" name="c5m3723" maxlength="1"
+                                                   id="f12"></td>
+                    <td class="c0" id="c22"><input class="s0" size="2" autocomplete="off" name="sc5m3733"
+                                                   value=""
+                                                   id="f22"></td>
+                    <td class="e0" id="c32"><input class="s0" size="2" autocomplete="off" name="sc5m3743"
+                                                   value=""
+                                                   id="f32"></td>
+                    <td class="c0" id="c42"><input class="d0" size="2" autocomplete="off" name="c5m3753" maxlength="1"
+                                                   id="f42"></td>
+                    <td class="c0" id="c52"><input class="d0" size="2" autocomplete="off" name="c5m3763" maxlength="1"
+                                                   id="f52"></td>
+                    <td class="e0" id="c62"><input class="d0" size="2" autocomplete="off" name="c5m3773" maxlength="1"
+                                                   id="f62"></td>
+                    <td class="c0" id="c72"><input class="s0" size="2" autocomplete="off" name="sc5m3783"
+                                                   value=""
+                                                   id="f72"></td>
+                    <td class="c0" id="c82"><input class="d0" size="2" autocomplete="off" name="c5m3793" maxlength="1"
+                                                   id="f82"></td>
+                </tr>
+                <tr>
+                    <td class="g0" id="c03"><input class="d0" size="2" autocomplete="off" name="c5m3714" maxlength="1"
+                                                   id="f03"></td>
+                    <td class="f0" id="c13"><input class="d0" size="2" autocomplete="off" name="c5m3724" maxlength="1"
+                                                   id="f13"></td>
+                    <td class="f0" id="c23"><input class="d0" size="2" autocomplete="off" name="c5m3734" maxlength="1"
+                                                   id="f23"></td>
+                    <td class="g0" id="c33"><input class="s0" size="2" autocomplete="off" name="sc5m3744"
+                                                   value=""
+                                                   id="f33"></td>
+                    <td class="f0" id="c43"><input class="s0" size="2" autocomplete="off" name="sc5m3754"
+                                                   value=""
+                                                   id="f43"></td>
+                    <td class="f0" id="c53"><input class="d0" size="2" autocomplete="off" name="c5m3764" maxlength="1"
+                                                   id="f53"></td>
+                    <td class="g0" id="c63"><input class="s0" size="2" autocomplete="off" name="sc5m3774"
+                                                   value=""
+                                                   id="f63"></td>
+                    <td class="f0" id="c73"><input class="s0" size="2" autocomplete="off" name="sc5m3784"
+                                                   value=""
+                                                   id="f73"></td>
+                    <td class="f0" id="c83"><input class="d0" size="2" autocomplete="off" name="c5m3794" maxlength="1"
+                                                   id="f83"></td>
+                </tr>
+                <tr>
+                    <td class="e0" id="c04"><input class="s0" size="2" autocomplete="off" name="sc5m3715"
+                                                   value=""
+                                                   id="f04"></td>
+                    <td class="c0" id="c14"><input class="d0" size="2" autocomplete="off" name="c5m3725" maxlength="1"
+                                                   id="f14"></td>
+                    <td class="c0" id="c24"><input class="d0" size="2" autocomplete="off" name="c5m3735" maxlength="1"
+                                                   id="f24"></td>
+                    <td class="e0" id="c34"><input class="s0" size="2" autocomplete="off" name="sc5m3745"
+                                                   value=""
+                                                   id="f34"></td>
+                    <td class="c0" id="c44"><input class="d0" size="2" autocomplete="off" name="c5m3755" maxlength="1"
+                                                   id="f44"></td>
+                    <td class="c0" id="c54"><input class="s0" size="2" autocomplete="off" name="sc5m3765"
+                                                   value=""
+                                                   id="f54"></td>
+                    <td class="e0" id="c64"><input class="d0" size="2" autocomplete="off" name="c5m3775" maxlength="1"
+                                                   id="f64"></td>
+                    <td class="c0" id="c74"><input class="d0" size="2" autocomplete="off" name="c5m3785" maxlength="1"
+                                                   id="f74"></td>
+                    <td class="c0" id="c84"><input class="s0" size="2" autocomplete="off" name="sc5m3795"
+                                                   value=""
+                                                   id="f84"></td>
+                </tr>
+                <tr>
+                    <td class="e0" id="c05"><input class="d0" size="2" autocomplete="off" name="c5m3716" maxlength="1"
+                                                   id="f05"></td>
+                    <td class="c0" id="c15"><input class="s0" size="2" autocomplete="off" name="sc5m3726" value=""
+                                                   id="f15"></td>
+                    <td class="c0" id="c25"><input class="s0" size="2" autocomplete="off" name="sc5m3736" value=""
+                                                   id="f25"></td>
+                    <td class="e0" id="c35"><input class="d0" size="2" autocomplete="off" name="c5m3746" maxlength="1"
+                                                   id="f35"></td>
+                    <td class="c0" id="c45"><input class="s0" size="2" autocomplete="off" name="sc5m3756" value=""
+                                                   id="f45"></td>
+                    <td class="c0" id="c55"><input class="s0" size="2" autocomplete="off" name="sc5m3766" value=""
+                                                   id="f55"></td>
+                    <td class="e0" id="c65"><input class="d0" size="2" autocomplete="off" name="c5m3776" maxlength="1"
+                                                   id="f65"></td>
+                    <td class="c0" id="c75"><input class="d0" size="2" autocomplete="off" name="c5m3786" maxlength="1"
+                                                   id="f75"></td>
+                    <td class="c0" id="c85"><input class="d0" size="2" autocomplete="off" name="c5m3796" maxlength="1"
+                                                   id="f85"></td>
+                </tr>
+                <tr>
+                    <td class="g0" id="c06"><input class="d0" size="2" autocomplete="off" name="c5m3717" maxlength="1"
+                                                   id="f06"></td>
+                    <td class="f0" id="c16"><input class="s0" size="2" autocomplete="off" name="sc5m3727" value=""
+                                                   id="f16"></td>
+                    <td class="f0" id="c26"><input class="d0" size="2" autocomplete="off" name="c5m3737" maxlength="1"
+                                                   id="f26"></td>
+                    <td class="g0" id="c36"><input class="d0" size="2" autocomplete="off" name="c5m3747" maxlength="1"
+                                                   id="f36"></td>
+                    <td class="f0" id="c46"><input class="d0" size="2" autocomplete="off" name="c5m3757" maxlength="1"
+                                                   id="f46"></td>
+                    <td class="f0" id="c56"><input class="s0" size="2" autocomplete="off" name="sc5m3767" value=""
+                                                   id="f56"></td>
+                    <td class="g0" id="c66"><input class="s0" size="2" autocomplete="off" name="sc5m3777" value=""
+                                                   id="f66"></td>
+                    <td class="f0" id="c76"><input class="d0" size="2" autocomplete="off" name="c5m3787" maxlength="1"
+                                                   id="f76"></td>
+                    <td class="f0" id="c86"><input class="s0" size="2" autocomplete="off" name="sc5m3797" value=""
+                                                   id="f86"></td>
+                </tr>
+                <tr>
+                    <td class="e0" id="c07"><input class="s0" size="2" autocomplete="off" name="sc5m3718" value=""
+                                                   id="f07"></td>
+                    <td class="c0" id="c17"><input class="d0" size="2" autocomplete="off" name="c5m3728" maxlength="1"
+                                                   id="f17"></td>
+                    <td class="c0" id="c27"><input class="d0" size="2" autocomplete="off" name="c5m3738" maxlength="1"
+                                                   id="f27"></td>
+                    <td class="e0" id="c37"><input class="d0" size="2" autocomplete="off" name="c5m3748" maxlength="1"
+                                                   id="f37"></td>
+                    <td class="c0" id="c47"><input class="d0" size="2" autocomplete="off" name="c5m3758" maxlength="1"
+                                                   id="f47"></td>
+                    <td class="c0" id="c57"><input class="d0" size="2" autocomplete="off" name="c5m3768" maxlength="1"
+                                                   id="f57"></td>
+                    <td class="e0" id="c67"><input class="s0" size="2" autocomplete="off" name="sc5m3778" value=""
+                                                   id="f67"></td>
+                    <td class="c0" id="c77"><input class="s0" size="2" autocomplete="off" name="sc5m3788" value=""
+                                                   id="f77"></td>
+                    <td class="c0" id="c87"><input class="s0" size="2" autocomplete="off" name="sc5m3798" value=""
+                                                   id="f87"></td>
+                </tr>
+                <tr>
+                    <td class="i0" id="c08"><input class="s0" size="2" autocomplete="off" name="sc5m3719" value=""
+                                                   id="f08"></td>
+                    <td class="h0" id="c18"><input class="d0" size="2" autocomplete="off" name="c5m3729" maxlength="1"
+                                                   id="f18"></td>
+                    <td class="h0" id="c28"><input class="s0" size="2" autocomplete="off" name="sc5m3739" value=""
+                                                   id="f28"></td>
+                    <td class="i0" id="c38"><input class="d0" size="2" autocomplete="off" name="c5m3749" maxlength="1"
+                                                   id="f38"></td>
+                    <td class="h0" id="c48"><input class="d0" size="2" autocomplete="off" name="c5m3759" maxlength="1"
+                                                   id="f48"></td>
+                    <td class="h0" id="c58"><input class="s0" size="2" autocomplete="off" name="sc5m3769" value=""
+                                                   id="f58"></td>
+                    <td class="i0" id="c68"><input class="s0" size="2" autocomplete="off" name="sc5m3779" value=""
+                                                   id="f68"></td>
+                    <td class="h0" id="c78"><input class="d0" size="2" autocomplete="off" name="c5m3789" maxlength="1"
+                                                   id="f78"></td>
+                    <td class="h0" id="c88"><input class="d0" size="2" autocomplete="off" name="c5m3799" maxlength="1"
+                                                   id="f88"></td>
+                </tr>
+            </div>
+            </tbody>
+        </table>
+        <br>
+        <input type="hidden" id="board" name="board" value="">
+        <button type="submit" onclick="solve()">Solve</button>
+    </form>
+</div>
+</body>
+<script type="application/javascript">
+    function solve() {
+
+        let arr = []
+        let x = 0
+        for (let i = 0; i < 9; i++) {
+            for (let j = 0; j < 9; j++) {
+                t = 'f' + j + i
+                var sam = document.getElementById(t).value;
+                if (sam === "")
+                    sam = 0
+                arr[x] = sam;
+                x++;
+            }
+        }
+        console.log(arr);
+        document.getElementById("board").value = arr
+
+    }
+</script>
+</html>

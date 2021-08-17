@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Solved</title>
+</head>
+
+<body>
+<style>
+    .center {
+        border: 5px solid #00295a;
+        display: flex;
+        justify-content: center;
+        padding: 50px 50px;
+    }
+
+    .center2 {
+        border: 2px solid #00295a;
+        padding: 20px 20px;
+        justify-content: center;
+        display: grid;
+    }
+
+    .vl {
+        border-left: thick solid #ff0000;
+        width: 2px;
+    }
+
+    .hl {
+        border-bottom: thick solid #FFFFFF;
+        height: 2px;
+    }
+</style>
+<div class="center2">
+    <h2>!!!!! Solved !!!!!</h2>
+    <form action="/" method="get" style="bottom: 0">
+        <br>
+        &nbsp;&nbsp;
+        <button type="submit"></a>Back to Main Page</button>
+    </form>
+</div>
+
+<div class="center">
+
+    <table id="puzzle_grid" class="" cellspacing="0" cellpadding="0">
+        <tbody>
+        {% for i in range(9) %}
+            <div>
+                <tr>
+                    {% for j in range(9) %}
+                        <td class="g0" id="c00"><input class="d0" size="2" autocomplete="off" name="c5m3711"
+                                                       maxlength="1"
+                                                       readonly="" id="f {{ i }}" value="{{ board[i][j] }}"></td>
+                        {% if j % 3 == 2 %}
+                            <td>
+                                <div class="vl"></div>
+                            </td>
+                        {% endif %}
+
+                    {% endfor %}
+                </tr>
+            </div>
+            {% if i % 3 == 2 %}
+                <td>
+                    <div class="hl"></div>
+                </td>
+            {% endif %}
+        {% endfor %}
+
+        </tbody>
+    </table>
+    <br>
+</div>
+
+</body>
+</html>
